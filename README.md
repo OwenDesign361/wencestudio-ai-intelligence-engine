@@ -36,11 +36,26 @@ graph TD
 
 | Time | Stage | Stack |
 |------|-------|-------|
-| **06:00** | Signal Collection & Analysis | Make.com + ChatGPT-5.5 + Airtable |
+| **06:00** | Signal Collection & Analysis | Make.com + ChatGPT-5.5 + Notion |
 | **08:00** | Content Generation | ChatGPT-5.5 Thinking + Claude Sonnet 5 + Knowledge Layer |
 | **10:00** | Auto-Distribution | Webflow CMS + Make.com + Buffer |
 | **Mon/Fri 07:00** | Newsletter Dispatch | Kit + AI Segmentation |
-| **24/7** | Intelligence Dashboard | Airtable + Looker Studio |
+| **24/7** | Intelligence Dashboard | Notion + Looker Studio |
+
+---
+
+## Make.com Scenario Blueprints
+
+Full production blueprints are ready in [`/make-com`](./make-com):
+
+| # | Scenario | Trigger | Blueprint |
+|---|----------|---------|-----------|
+| 01 | Signal Intelligence | 06:00 daily | [01-signal-intelligence.md](./make-com/01-signal-intelligence.md) |
+| 02 | Content Engine | 08:00 or Notion Watch | [02-content-engine.md](./make-com/02-content-engine.md) |
+| 03 | Auto-Distribution | status = Approved | [03-auto-distribution.md](./make-com/03-auto-distribution.md) |
+| 04 | Newsletter Dispatch | Mon & Fri 07:00 | [04-newsletter-dispatch.md](./make-com/04-newsletter-dispatch.md) |
+
+Shared patterns (error handling, model fallback, idempotency, rate limits) are documented in the [make-com README](./make-com/README.md).
 
 ---
 
@@ -59,7 +74,7 @@ graph TD
 - Multi-source validation required
 - Novelty score above historical baseline
 
-**Output** → Airtable / Notion base `Momentum Intelligence 2026`  
+**Output** → Notion base `Momentum Intelligence 2026`  
 5–8 validated opportunities daily  
 Fields: `signal_id`, `category`, `momentum_score` (0–100), `primary_source`, `sentiment`, `opportunity_rating`
 
@@ -79,6 +94,8 @@ Sequential agent workflow:
 - Automated retry orchestration
 - Model fallback routing
 - Average full asset bundle: <4 minutes
+
+Agent prompts live in [`/prompts`](./prompts).
 
 ---
 
@@ -140,6 +157,7 @@ Learning loop feeds continuously back into the 06:00 signal layer.
 | Content Generation | COMPLETE |
 | Distribution Queue | SCHEDULED |
 | Newsletter Pipeline | ACTIVE |
+| Make.com Blueprints | **SHIPPED** |
 
 ---
 
@@ -147,6 +165,8 @@ Learning loop feeds continuously back into the 06:00 signal layer.
 
 - **Notion Command Center**: [WenceStudio AI Intelligence Engine](https://app.notion.com/p/3ae60f582a8d817f9e2bde0d7b21cf46)
 - **Momentum Intelligence Database**: [Momentum Intelligence 2026](https://www.notion.so/69063ed8e4ad4530b1d08253a2a772e4)
+- **Make.com Blueprints**: [`/make-com`](./make-com)
+- **Agent Prompts**: [`/prompts`](./prompts)
 
 ---
 
